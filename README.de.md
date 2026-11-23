@@ -6,7 +6,7 @@ Die Integration sucht den nächsten **in OpenStreetMap erfassten** Zigarettenaut
 
 ## Installation
 
-Dieses Repository im Home Assistant Marketplace (oder in älteren Versionen in HACS) als benutzerdefiniertes Repository vom Typ **Integration** hinzufügen, herunterladen und Home Assistant neu starten. Danach unter **Einstellungen → Geräte & Dienste** den **Zigarettenautomaten-Finder** einrichten. Getestet ab Home Assistant 2026.9.4.
+Dieses Repository im Home Assistant Marketplace (oder in älteren Versionen in HACS) als benutzerdefiniertes Repository vom Typ **Integration** hinzufügen, herunterladen und Home Assistant neu starten. Danach unter **Einstellungen → Geräte & Dienste** den **Zigarettenautomaten-Finder** einrichten. Getestet ab Home Assistant 2024.4.0.
 
 Optional eine Standardperson auswählen sowie Suchradius (1–100 km, Standard 25) und Anzahl der Kartenmarkierungen (1–30, Standard 10) einstellen. Die Person benötigt Standortkoordinaten über einen Device Tracker. Gesucht wird beim Einrichten, etwa alle sechs Stunden und bei jedem Aufruf der Aktion.
 
