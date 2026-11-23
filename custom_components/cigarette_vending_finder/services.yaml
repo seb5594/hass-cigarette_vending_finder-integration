@@ -1,0 +1,42 @@
+find_nearest:
+  name: Find nearest cigarette vending machines
+  description: Search around a person or explicit coordinates and return mapped locations.
+  fields:
+    person:
+      name: Person
+      description: Person whose current location is used; defaults to the configured person or home.
+      selector:
+        entity:
+          domain: person
+    latitude:
+      name: Latitude
+      description: Latitude for an explicit search; supply longitude as well.
+      selector:
+        number:
+          min: -90
+          max: 90
+          mode: box
+    longitude:
+      name: Longitude
+      description: Longitude for an explicit search; supply latitude as well.
+      selector:
+        number:
+          min: -180
+          max: 180
+          mode: box
+    maximum_radius_km:
+      name: Maximum radius
+      description: Maximum search radius in kilometers, from 1 to 100.
+      selector:
+        number:
+          min: 1
+          max: 100
+          mode: box
+    limit:
+      name: Result limit
+      description: Maximum number of nearby machines, from 1 to 30.
+      selector:
+        number:
+          min: 1
+          max: 30
+          mode: box
