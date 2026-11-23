@@ -1,6 +1,6 @@
 {
   "name": "Cigarette Vending Finder",
-  "homeassistant": "2024.4.0",
+  "homeassistant": "2024.6.4",
   "render_readme": true,
   "zip_release": true,
   "filename": "cigarette_vending_finder.zip"
