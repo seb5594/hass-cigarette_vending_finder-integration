@@ -1,0 +1,13 @@
+{
+  "domain": "cigarette_vending_finder",
+  "name": "Cigarette Vending Finder",
+  "codeowners": ["@seb5594"],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/seb5594/hass-cigarette_vending_finder-integration",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/seb5594/hass-cigarette_vending_finder-integration/issues",
+  "requirements": [],
+  "version": "2026.11.23"
+}

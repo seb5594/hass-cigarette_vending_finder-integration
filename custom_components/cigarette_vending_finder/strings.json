@@ -1,0 +1,43 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Cigarette Vending Finder",
+        "description": "Search mapped cigarette vending machines through OpenStreetMap. A location is sent to a public Overpass server when searching.",
+        "data": {
+          "person": "Default person (optional)",
+          "maximum_radius_km": "Maximum search radius (km)",
+          "map_limit": "Map result limit"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "The finder is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Cigarette Vending Finder settings",
+        "data": {
+          "person": "Default person (optional)",
+          "maximum_radius_km": "Maximum search radius (km)",
+          "map_limit": "Map result limit"
+        }
+      }
+    }
+  },
+  "services": {
+    "find_nearest": {
+      "name": "Find nearest cigarette vending machines",
+      "description": "Search around a person or explicit coordinates and return mapped locations.",
+      "fields": {
+        "person": {"name": "Person", "description": "Use this person's current position."},
+        "latitude": {"name": "Latitude", "description": "Latitude for an explicit search; supply longitude as well."},
+        "longitude": {"name": "Longitude", "description": "Longitude for an explicit search; supply latitude as well."},
+        "maximum_radius_km": {"name": "Maximum radius", "description": "Maximum search radius in kilometers."},
+        "limit": {"name": "Result limit", "description": "Maximum number of returned machines."}
+      }
+    }
+  }
+}

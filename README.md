@@ -1,48 +1,58 @@
 <!-- header:begin (generated from project metadata) -->
-<h1 align="center">Example Integration</h1>
-
----
+<h1 align="center">Cigarette Vending Finder</h1>
 
 <p align="center">
-  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=seb5594&amp;repository=Home-Assistant-Integration-Template&amp;category=integration"><img src="https://img.shields.io/static/v1?label=HACS&amp;message=Add%20integration&amp;color=41BDF5&amp;logo=homeassistantcommunitystore&amp;logoColor=white&amp;style=for-the-badge" alt="HACS" height="28"></a>
-  <a href="https://github.com/seb5594/Home-Assistant-Integration-Template/actions/workflows/compat.yml"><img src="https://img.shields.io/static/v1?label=home%20assistant&amp;message=%E2%89%A5%202024.4.0&amp;color=1877A5&amp;style=for-the-badge" alt="home assistant" height="28"></a>
-  <a href="https://github.com/seb5594/Home-Assistant-Integration-Template/releases"><img src="https://img.shields.io/static/v1?label=version&amp;message=0.1.0&amp;color=1877A5&amp;style=for-the-badge" alt="version" height="28"></a><br>
-  <a href="https://github.com/seb5594/Home-Assistant-Integration-Template/issues"><img src="https://img.shields.io/github/issues/seb5594/Home-Assistant-Integration-Template?label=issues&amp;style=flat" alt="issues" height="20"></a>
-  <a href="https://github.com/seb5594/Home-Assistant-Integration-Template/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/seb5594/Home-Assistant-Integration-Template/ci.yml?branch=main&amp;label=checks&amp;style=flat" alt="checks" height="20"></a>
-  <a href="https://github.com/seb5594/Home-Assistant-Integration-Template#license"><img src="https://img.shields.io/github/license/seb5594/Home-Assistant-Integration-Template?label=license&amp;style=flat" alt="license" height="20"></a><br>
-  <a href="https://paypal.me/seb5594"><img src="https://img.shields.io/static/v1?label=Support&amp;message=PayPal&amp;color=0070BA&amp;logo=paypal&amp;logoColor=white&amp;style=for-the-badge" alt="PayPal" height="40"></a>
-  <a href="https://buymeacoffee.com/seb5594"><img src="https://img.shields.io/static/v1?label=Support&amp;message=Buy%20Me%20a%20Coffee&amp;color=FFDD00&amp;logo=buy-me-a-coffee&amp;logoColor=black&amp;style=for-the-badge" alt="Buy Me a Coffee" height="40"></a>
+  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=seb5594&amp;repository=hass-cigarette_vending_finder-integration&amp;category=integration"><img src="https://img.shields.io/static/v1?label=HACS%20%C2%B7%20Marketplace&amp;message=Add%20integration&amp;color=41BDF5&amp;logo=homeassistantcommunitystore&amp;logoColor=white&amp;style=for-the-badge" alt="HACS · Marketplace" height="28"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/compat.yml"><img src="https://img.shields.io/static/v1?label=home%20assistant&amp;message=%E2%89%A5%202026.9.4&amp;color=1877A5&amp;style=for-the-badge" alt="home assistant" height="28"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases"><img src="https://img.shields.io/static/v1?label=integration%20version&amp;message=2026.11.23&amp;color=1877A5&amp;style=for-the-badge" alt="integration version" height="28"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases"><img src="https://img.shields.io/github/downloads/seb5594/hass-cigarette_vending_finder-integration/latest/total?label=downloads&amp;color=1877A5&amp;style=for-the-badge" alt="downloads" height="28"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/stargazers"><img src="https://img.shields.io/github/stars/seb5594/hass-cigarette_vending_finder-integration?label=stars&amp;style=flat" alt="stars" height="20"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/forks"><img src="https://img.shields.io/github/forks/seb5594/hass-cigarette_vending_finder-integration?label=forks&amp;style=flat" alt="forks" height="20"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/seb5594/hass-cigarette_vending_finder-integration/ci.yml?branch=main&amp;label=checks&amp;style=flat" alt="checks" height="20"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/issues"><img src="https://img.shields.io/github/issues/seb5594/hass-cigarette_vending_finder-integration?label=issues&amp;style=flat" alt="issues" height="20"></a><br>
+  <a href="https://paypal.me/seb5594"><img src="https://img.shields.io/static/v1?label=Support&amp;message=PayPal&amp;color=0070BA&amp;logo=paypal&amp;logoColor=white&amp;style=for-the-badge" alt="PayPal" height="24"></a>
+  <a href="https://buymeacoffee.com/seb5594"><img src="https://raw.githubusercontent.com/seb5594/Home-Assistant-Apps/473dc258f963096745aac327df54950eb9b59066/.github/assets/support-beer.svg" alt="Buy me a beer" height="24"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration#license"><img src="https://img.shields.io/github/license/seb5594/hass-cigarette_vending_finder-integration?label=license&amp;style=flat" alt="license" height="20"></a>
 </p>
 <!-- header:end -->
 
 **🇬🇧 English** · [🇩🇪 Deutsch](README.de.md)
 
-A starting point for a HACS integration with the shared pipeline already wired in: validation,
-tests, HACS and manual ZIP packaging, GitHub releases and README badges.
+Find the nearest **mapped** cigarette vending machines from a Home Assistant location or a person's current coordinates. OpenStreetMap/Overpass supplies international coverage without an API key. The integration cannot promise that every real machine is mapped, still operating, or accessible at the time of your visit.
 
-## Using this template
+## Install
 
-1. Create a repository from this template, named `hass-<project>-integration`.
-2. Rename `custom_components/example_integration/` and update the `domain` in `manifest.json`,
-   `DOMAIN` in `const.py`, `filename` in `hacs.json` (`<domain>.zip`) and the repository URLs.
-3. Replace the placeholder code and add real tests under `.github/tests/`. Add
-   `requirements-dev.txt` to run them with pytest, or keep plain `unittest` files.
-   `.github/ha_tests/` holds tests that run inside a real Home Assistant core; the Compatibility
-   workflow runs them for every release from the `homeassistant` minimum in `hacs.json` upwards,
-   so lower that minimum only as far as the tests pass.
-4. Regenerate the header above (name, logo and badges) and commit the result:
+Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. Tested with Home Assistant 2026.9.4 or newer.
 
-   ```bash
-   git clone https://github.com/seb5594/hass-workflows .engine   # private; needs access
-   python .engine/.scripts/readme.py
-   ```
+Choose an optional default person, a maximum radius (1–100 km, default 25), and the number of results on the map (1–30, default 10). Without a person, scheduled searches start at your Home Assistant home location. A configured person needs a device tracker with latitude and longitude. Location searches occur on setup, approximately every six hours, and when you run the action.
 
-5. Raise `version` in `manifest.json` and add a `CHANGELOG.md` entry for every release. A new
-   version on `main` publishes the HACS ZIP, the manual ZIP and checksums; `a`, `b` and `rc`
-   suffixes (for example `1.0.0b1`) become pre-releases.
+## Find a machine now
 
-The two workflows, `.github/workflows/ci.yml` and `compat.yml`, call the shared engine at a pinned
-commit and need the `ORCHESTRATION_PAT` secret. Project-specific rules can go into `.github/checks/*.py`.
+Run `cigarette_vending_finder.find_nearest` from **Developer tools → Actions**. Supply `person: person.sebastian` to search from that person's current coordinates, or supply both `latitude` and `longitude`. Both are optional if you configured a default person or want to search around home.
+
+```yaml
+# Example: run this action in an automation and inspect the structured result.
+action: cigarette_vending_finder.find_nearest
+data:
+  person: person.sebastian
+  maximum_radius_km: 25
+  limit: 5
+response_variable: cigarette_machines
+```
+
+The response contains `origin`, `count`, `nearest`, and `machines`. Each location includes distance **as the crow flies**, OSM and navigation links, and any available OSM details (`location`, `description`, `level`, street address, operator, brand, access, opening hours, payment methods, and survey date). `image_url` is supplied only when the OSM item provides an image or Wikimedia Commons file. A `mapillary` tag, when available, appears in `details` as a photo identifier; no Mapillary image is fetched. The nearest-distance sensor and up to the configured number of `geo_location` entities update after the action; markers appear on the Home Assistant map. Missing details are not fabricated.
+
+The action returns an empty `machines` list and `nearest: null` if no mapped machine exists inside the requested radius. It reports a validation error when a person has no usable coordinates or the public Overpass server cannot respond; in that case previous sensor data remains available and may be stale.
+
+## Data, images, and privacy
+
+The query selects `amenity=vending_machine` with `vending=cigarettes` (also supporting semicolon-separated vending categories). It searches progressively larger circles, deduplicates OSM nodes, ways and relations, and keeps location-based responses for six hours to reduce public API traffic. The default public Overpass endpoint has a fair-use policy and may reject or delay queries; a large number of users must use their own infrastructure. The integration sends the requested coordinates to Overpass, and Home Assistant may request image URLs from external hosts when displaying machine pictures. Other sources cannot be merged without reuse rights.
+
+Machine data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), ODbL. Photos retain their respective licenses; follow the image link for their attribution. Contribute corrections and missing locations directly to OpenStreetMap. Geofabrik country extracts may be used for a separately operated regional dataset, subject to the same ODbL.
+
+## Development
+
+The caller workflows in `.github/workflows/` use [`hass-workflows`](https://github.com/seb5594/hass-workflows) for validation, real Home Assistant compatibility tests and release ZIPs. `ORCHESTRATION_PAT` is optional for the public shared engine; it is required only for features that need cross-repository permissions. For local checks after cloning that repository under `.engine/`: `python .engine/.scripts/managed.py check integration`, `python .engine/.scripts/integration_checks.py` and `python -m unittest discover -s .github/tests`.
 
 <!-- support:begin (generated, shared text) -->
 ## Say thanks
@@ -51,7 +61,7 @@ All my projects are built in my spare time, just for the fun of it. Still, they 
 
 If my work helped you or turned out to be useful, show your appreciation with a hot drink for my next sleepless night.
 
-[![PayPal](https://img.shields.io/static/v1?label=Support&message=PayPal&color=0070BA&logo=paypal&logoColor=white&style=for-the-badge)](https://paypal.me/seb5594) [![Buy Me a Coffee](https://img.shields.io/static/v1?label=Support&message=Buy%20Me%20a%20Coffee&color=FFDD00&logo=buy-me-a-coffee&logoColor=black&style=for-the-badge)](https://buymeacoffee.com/seb5594)
+[![PayPal](https://img.shields.io/static/v1?label=Support&message=PayPal&color=0070BA&logo=paypal&logoColor=white&style=for-the-badge)](https://paypal.me/seb5594) [![Buy me a beer](https://raw.githubusercontent.com/seb5594/Home-Assistant-Apps/473dc258f963096745aac327df54950eb9b59066/.github/assets/support-beer.svg)](https://buymeacoffee.com/seb5594)
 <!-- support:end -->
 
 <!-- license:begin (generated from the license file) -->

@@ -1,0 +1,43 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Zigarettenautomaten-Finder",
+        "description": "Suche nach in OpenStreetMap erfassten Zigarettenautomaten. Beim Suchen wird ein Standort an einen öffentlichen Overpass-Server übertragen.",
+        "data": {
+          "person": "Standardperson (optional)",
+          "maximum_radius_km": "Maximaler Suchradius (km)",
+          "map_limit": "Anzahl Kartenmarkierungen"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Der Finder ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Einstellungen für den Zigarettenautomaten-Finder",
+        "data": {
+          "person": "Standardperson (optional)",
+          "maximum_radius_km": "Maximaler Suchradius (km)",
+          "map_limit": "Anzahl Kartenmarkierungen"
+        }
+      }
+    }
+  },
+  "services": {
+    "find_nearest": {
+      "name": "Nächste Zigarettenautomaten finden",
+      "description": "Um eine Person oder Koordinaten suchen und die erfassten Standorte zurückgeben.",
+      "fields": {
+        "person": {"name": "Person", "description": "Aktuellen Standort dieser Person verwenden."},
+        "latitude": {"name": "Breitengrad", "description": "Bei eigener Suche auch den Längengrad angeben."},
+        "longitude": {"name": "Längengrad", "description": "Bei eigener Suche auch den Breitengrad angeben."},
+        "maximum_radius_km": {"name": "Maximaler Radius", "description": "Maximaler Suchradius in Kilometern."},
+        "limit": {"name": "Anzahl Ergebnisse", "description": "Maximale Anzahl zurückgegebener Automaten."}
+      }
+    }
+  }
+}
