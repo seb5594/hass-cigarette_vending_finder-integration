@@ -33,7 +33,7 @@ jobs:
         with:
           repository: seb5594/hass-workflows
           ref: main
-          token: ${{ secrets.ORCHESTRATION_PAT }}
+          token: ${{ secrets.ORCHESTRATION_PAT || github.token }}
           path: .engine
           persist-credentials: false
       - name: Validate for the public catalog

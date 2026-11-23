@@ -52,7 +52,7 @@ Machine data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyr
 
 ## Development
 
-The caller workflows in `.github/workflows/` use [`hass-workflows`](https://github.com/seb5594/hass-workflows) for validation, real Home Assistant compatibility tests and release ZIPs. `ORCHESTRATION_PAT` is needed to check out the shared engine in GitHub Actions. For local checks after cloning that repository under `.engine/`: `python .engine/.scripts/managed.py check integration`, `python .engine/.scripts/integration_checks.py` and `python -m unittest discover -s .github/tests`.
+The caller workflows in `.github/workflows/` use [`hass-workflows`](https://github.com/seb5594/hass-workflows) for validation, real Home Assistant compatibility tests and release ZIPs. `ORCHESTRATION_PAT` is optional for the public shared engine; it is required only for features that need cross-repository permissions. For local checks after cloning that repository under `.engine/`: `python .engine/.scripts/managed.py check integration`, `python .engine/.scripts/integration_checks.py` and `python -m unittest discover -s .github/tests`.
 
 <!-- support:begin (generated, shared text) -->
 ## Say thanks
