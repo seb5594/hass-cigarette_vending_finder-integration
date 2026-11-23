@@ -30,7 +30,7 @@ Find the nearest **mapped** cigarette vending machines from a Home Assistant loc
 
 ## Install
 
-Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. Tested with Home Assistant 2024.4.0 or newer.
+Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. Tested with Home Assistant 2024.4.0 or newer; 2024.3 lacks an API used by the config flow.
 
 Choose an optional default person, a maximum radius (1–100 km, default 25), and the number of results on the map (1–30, default 10). Without a person, scheduled searches start at your Home Assistant home location. A configured person needs a device tracker with latitude and longitude. Location searches occur on setup, approximately every six hours, and when you run the action.
 
