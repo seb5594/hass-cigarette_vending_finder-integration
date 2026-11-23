@@ -6,9 +6,13 @@ import asyncio
 from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from math import asin, cos, radians, sin, sqrt
+from typing import TYPE_CHECKING
 from urllib.parse import quote
 
-from aiohttp import ClientError, ClientSession, ClientTimeout
+# Replaced: import aiohttp only for network calls so parser tests need no HA dependencies.
+# from aiohttp import ClientError, ClientSession, ClientTimeout
+if TYPE_CHECKING:
+    from aiohttp import ClientSession
 
 from .const import ATTRIBUTION, OVERPASS_URL, RADII_KM
 
@@ -124,6 +128,8 @@ class OverpassFinder:
         self._lock = asyncio.Lock()
 
     async def _query(self, latitude: float, longitude: float, radius_km: int) -> list[dict]:
+        from aiohttp import ClientError, ClientTimeout
+
         # Cache by a ~1 km cell and include a 1 km margin to cover every point in it.
         lat_cell, lon_cell = round(latitude, 2), round(longitude, 2)
         key = (lat_cell, lon_cell, radius_km)
