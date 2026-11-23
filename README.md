@@ -1,11 +1,20 @@
 <!-- header:begin (generated from project metadata) -->
-<h1 align="center">Cigarette Vending Finder</h1>
+<h1 align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/seb5594/hass-cigarette_vending_finder-integration/main/custom_components/cigarette_vending_finder/brand/dark_logo@2x.png">
+    <img src="https://raw.githubusercontent.com/seb5594/hass-cigarette_vending_finder-integration/main/custom_components/cigarette_vending_finder/brand/logo@2x.png" alt="Cigarette Vending Finder" width="360" height="101">
+  </picture>
+  <br>
+  Cigarette Vending Finder
+</h1>
 
 <p align="center">
   <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=seb5594&amp;repository=hass-cigarette_vending_finder-integration&amp;category=integration"><img src="https://img.shields.io/static/v1?label=HACS%20%C2%B7%20Marketplace&amp;message=Add%20integration&amp;color=41BDF5&amp;logo=homeassistantcommunitystore&amp;logoColor=white&amp;style=for-the-badge" alt="HACS · Marketplace" height="28"></a>
-  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/compat.yml"><img src="https://img.shields.io/static/v1?label=home%20assistant&amp;message=%E2%89%A5%202026.9.4&amp;color=1877A5&amp;style=for-the-badge" alt="home assistant" height="28"></a><br>
-  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases/tag/2026.11.23"><img src="https://img.shields.io/static/v1?label=integration%20version&amp;message=2026.11.23&amp;color=1877A5&amp;style=for-the-badge" alt="integration version" height="28"></a>
-  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases"><img src="https://img.shields.io/github/downloads/seb5594/hass-cigarette_vending_finder-integration/2026.11.23/total?label=downloads&amp;color=1877A5&amp;style=for-the-badge" alt="downloads" height="28"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/compat.yml"><img src="https://img.shields.io/static/v1?label=home%20assistant&amp;message=%E2%89%A5%202024.4.0&amp;color=1877A5&amp;style=for-the-badge" alt="home assistant" height="28"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases"><img src="https://img.shields.io/static/v1?label=integration%20version&amp;message=2026.11.23.1&amp;color=1877A5&amp;style=for-the-badge" alt="integration version" height="28"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases"><img src="https://img.shields.io/github/downloads/seb5594/hass-cigarette_vending_finder-integration/latest/total?label=downloads&amp;color=1877A5&amp;style=for-the-badge" alt="downloads" height="28"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/stargazers"><img src="https://img.shields.io/github/stars/seb5594/hass-cigarette_vending_finder-integration?label=stars&amp;style=flat" alt="stars" height="20"></a>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/forks"><img src="https://img.shields.io/github/forks/seb5594/hass-cigarette_vending_finder-integration?label=forks&amp;style=flat" alt="forks" height="20"></a>
   <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/seb5594/hass-cigarette_vending_finder-integration/ci.yml?branch=main&amp;label=checks&amp;style=flat" alt="checks" height="20"></a>
   <img src="https://img.shields.io/static/v1?label=tests&amp;message=4%20passed&amp;color=2F855A&amp;style=flat" alt="tests" height="20">
   <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/issues"><img src="https://img.shields.io/github/issues/seb5594/hass-cigarette_vending_finder-integration?label=issues&amp;style=flat" alt="issues" height="20"></a><br>
@@ -21,7 +30,7 @@ Find the nearest **mapped** cigarette vending machines from a Home Assistant loc
 
 ## Install
 
-Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. Tested with Home Assistant 2026.9.4 or newer.
+Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. Tested with Home Assistant 2024.4.0 or newer; 2024.3 lacks an API used by the config flow.
 
 Choose an optional default person, a maximum radius (1–100 km, default 25), and the number of results on the map (1–30, default 10). Without a person, scheduled searches start at your Home Assistant home location. A configured person needs a device tracker with latitude and longitude. Location searches occur on setup, approximately every six hours, and when you run the action.
 

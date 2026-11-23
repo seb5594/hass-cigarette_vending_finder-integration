@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026.11.23.1
+
+- Added icon and light/dark wordmark in Home Assistant's brand image sizes.
+- Lowered the verified Home Assistant minimum to 2024.4.0.
+
 ## 2026.11.23
 
 - Added OSM/Overpass searches by person, home, or explicit coordinates, with a response action.
