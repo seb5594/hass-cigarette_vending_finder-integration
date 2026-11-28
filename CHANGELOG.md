@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026.11.28.2
+
+- Publish the integration under the MIT License.
+
 ## 2026.11.28.1
 
 - Support Home Assistant 2021.11.5 and newer with one HACS package.
