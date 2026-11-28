@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=seb5594&amp;repository=hass-cigarette_vending_finder-integration&amp;category=integration"><img src="https://img.shields.io/static/v1?label=HACS%20%C2%B7%20Marketplace&amp;message=Add%20integration&amp;color=41BDF5&amp;logo=homeassistantcommunitystore&amp;logoColor=white&amp;style=for-the-badge" alt="HACS · Marketplace" height="28"></a>
-  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/compat.yml"><img src="https://img.shields.io/static/v1?label=home%20assistant&amp;message=%E2%89%A5%202024.6.4&amp;color=1877A5&amp;style=for-the-badge" alt="home assistant" height="28"></a><br>
+  <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/compat.yml"><img src="https://img.shields.io/static/v1?label=home%20assistant&amp;message=%E2%89%A5%202021.11.5&amp;color=1877A5&amp;style=for-the-badge" alt="home assistant" height="28"></a><br>
   <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases/tag/2026.11.28"><img src="https://img.shields.io/static/v1?label=integration%20version&amp;message=2026.11.28&amp;color=1877A5&amp;style=for-the-badge" alt="integration version" height="28"></a>
   <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/releases"><img src="https://img.shields.io/github/downloads/seb5594/hass-cigarette_vending_finder-integration/2026.11.28/total?label=downloads&amp;color=1877A5&amp;style=for-the-badge" alt="downloads" height="28"></a><br>
   <a href="https://github.com/seb5594/hass-cigarette_vending_finder-integration/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/seb5594/hass-cigarette_vending_finder-integration/ci.yml?branch=main&amp;label=checks&amp;style=flat" alt="checks" height="20"></a>
@@ -46,7 +46,7 @@ data:
 response_variable: cigarette_machines
 ```
 
-Home Assistant versions before 2023.7 support the search action without `response_variable`. Read the result from the distance sensor attributes or the map markers. Older setup screens may require entering the optional `person.*` entity ID as text.
+Before Home Assistant 2024.8, use `service:` in the YAML example. Before 2023.7, omit `response_variable` and read the result from the distance sensor attributes or the map markers. Older setup screens may require entering the optional `person.*` entity ID as text.
 
 The response contains `origin`, `count`, `nearest`, and `machines`. Each location includes distance **as the crow flies**, OSM and navigation links, and any available OSM details (`location`, `description`, `level`, street address, operator, brand, access, opening hours, payment methods, and survey date). `image_url` is supplied only when the OSM item provides an image or Wikimedia Commons file. A `mapillary` tag, when available, appears in `details` as a photo identifier; no Mapillary image is fetched. The nearest-distance sensor and up to the configured number of `geo_location` entities update after the action; markers appear on the Home Assistant map. Missing details are not fabricated.
 

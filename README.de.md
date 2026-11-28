@@ -24,7 +24,7 @@ data:
 response_variable: cigarette_machines
 ```
 
-Vor Home Assistant 2023.7 funktioniert die Suchaktion ohne `response_variable`. Das Ergebnis steht in den Attributen des Entfernungssensors und auf der Karte. In älteren Einrichtungsdialogen kann die optionale `person.*`-Entitäts-ID als Texteingabe erscheinen.
+Verwende vor Home Assistant 2024.8 im YAML-Beispiel `service:`. Lass vor 2023.7 außerdem `response_variable` weg. Das Ergebnis steht in den Attributen des Entfernungssensors und auf der Karte. In älteren Einrichtungsdialogen kann die optionale `person.*`-Entitäts-ID als Texteingabe erscheinen.
 
 Die Antwort enthält `origin`, `count`, `nearest` und `machines`. Pro Automat werden die **Luftlinienentfernung**, OSM- und Navigationslink sowie vorhandene Standortdetails geliefert: etwa Beschreibung, genaue Lage, Stockwerk, Adresse, Betreiber, Zugang, Öffnungszeiten, Zahlarten und Erfassungsdatum. Ein `image_url` erscheint nur, wenn in OSM ein Bildlink oder eine Wikimedia-Commons-Datei hinterlegt ist. Ein vorhandener Mapillary-Verweis wird als Detail angezeigt, aber nicht als Bild geladen. Zusätzlich erscheinen ein Sensor für die Entfernung zum nächsten Automaten und temporäre Kartenmarkierungen. Fehlende Angaben werden nicht geschätzt.
 
