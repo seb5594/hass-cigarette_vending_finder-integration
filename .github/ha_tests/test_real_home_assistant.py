@@ -7,11 +7,14 @@ import pytest
 pytest.importorskip("pytest_homeassistant_custom_component")
 
 from pytest_homeassistant_custom_component.common import MockConfigEntry  # noqa: E402
-from homeassistant.exceptions import HomeAssistantError, ServiceValidationError  # noqa: E402
+from homeassistant import core  # noqa: E402
+from homeassistant.exceptions import HomeAssistantError  # noqa: E402
+from custom_components.cigarette_vending_finder import ServiceValidationError  # noqa: E402
 from custom_components.cigarette_vending_finder.api import FinderError, Machine  # noqa: E402
 
 DOMAIN = "cigarette_vending_finder"
 API = f"custom_components.{DOMAIN}.OverpassFinder.search"
+RESPONSE = {"return_response": True} if hasattr(core, "SupportsResponse") else {}
 
 
 @pytest.fixture(autouse=True)
@@ -39,11 +42,14 @@ async def test_entry_and_search_response(hass):
         await hass.async_block_till_done()
         response = await hass.services.async_call(
             DOMAIN, "find_nearest", {"latitude": 50, "longitude": 8},
-            blocking=True, return_response=True,
+            blocking=True, **RESPONSE,
         )
-        assert response["count"] == 0
-        assert response["nearest"] is None
-        assert response["origin"]["latitude"] == 50
+        if RESPONSE:
+            assert response["count"] == 0
+            assert response["nearest"] is None
+            assert response["origin"]["latitude"] == 50
+        else:
+            assert hass.states.get("sensor.nearest_cigarette_vending_machine").attributes["matches"] == 0
         assert search.call_count == 2
         assert await hass.config_entries.async_unload(entry.entry_id)
         assert not hass.services.has_service(DOMAIN, "find_nearest")
@@ -60,18 +66,20 @@ async def test_person_search_updates_sensor_and_map(hass):
         hass.states.async_set("person.sebastian", "not_home", {"latitude": 50, "longitude": 8})
         response = await hass.services.async_call(
             DOMAIN, "find_nearest", {"person": "person.sebastian"},
-            blocking=True, return_response=True,
+            blocking=True, **RESPONSE,
         )
         await hass.async_block_till_done()
-        assert response["nearest"]["details"]["location"] == "beside exit"
+        if RESPONSE:
+            assert response["nearest"]["details"]["location"] == "beside exit"
         sensor = hass.states.get("sensor.nearest_cigarette_vending_machine")
         assert sensor is not None and sensor.state == "0.2"
+        assert sensor.attributes["machine"]["details"]["location"] == "beside exit"
         marker, = [state for state in hass.states.async_all("geo_location")
                    if state.attributes.get("latitude") == 50]
         search.return_value = []
         await hass.services.async_call(
             DOMAIN, "find_nearest", {"latitude": 50, "longitude": 8},
-            blocking=True, return_response=True,
+            blocking=True, **RESPONSE,
         )
         await hass.async_block_till_done()
         assert hass.states.get(marker.entity_id) is None
@@ -88,12 +96,12 @@ async def test_lookup_failure_is_an_action_error(hass):
         with pytest.raises(HomeAssistantError, match="Overpass unavailable") as error:
             await hass.services.async_call(
                 DOMAIN, "find_nearest", {"latitude": 50, "longitude": 8},
-                blocking=True, return_response=True,
+                blocking=True, **RESPONSE,
             )
         assert not isinstance(error.value, ServiceValidationError)
         with pytest.raises(ServiceValidationError, match="must be provided together"):
             await hass.services.async_call(
                 DOMAIN, "find_nearest", {"latitude": 50},
-                blocking=True, return_response=True,
+                blocking=True, **RESPONSE,
             )
         assert await hass.config_entries.async_unload(entry.entry_id)

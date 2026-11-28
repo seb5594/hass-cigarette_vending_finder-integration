@@ -1,11 +1,18 @@
 """Config flow for Cigarette Vending Finder."""
 
+from __future__ import annotations
+
+from typing import TYPE_CHECKING
+
 import voluptuous as vol
 
-from homeassistant.config_entries import ConfigFlow, ConfigFlowResult, OptionsFlow
-from homeassistant.helpers.selector import EntitySelector, EntitySelectorConfig
+from homeassistant.config_entries import ConfigFlow, OptionsFlow
+from homeassistant.helpers.selector import EntitySelector
 
 from .const import CONF_LIMIT, CONF_PERSON, CONF_RADIUS, DEFAULT_LIMIT, DEFAULT_RADIUS, DOMAIN
+
+if TYPE_CHECKING:
+    from homeassistant.config_entries import ConfigFlowResult
 
 
 def schema(options: dict | None = None) -> vol.Schema:
@@ -14,7 +21,7 @@ def schema(options: dict | None = None) -> vol.Schema:
     return vol.Schema(
         {
             vol.Optional(CONF_PERSON, description={"suggested_value": options.get(CONF_PERSON)}): EntitySelector(
-                EntitySelectorConfig(domain="person")
+                {"domain": "person"}
             ),
             vol.Optional(CONF_RADIUS, default=options.get(CONF_RADIUS, DEFAULT_RADIUS)): vol.All(
                 vol.Coerce(int), vol.Range(min=1, max=100)

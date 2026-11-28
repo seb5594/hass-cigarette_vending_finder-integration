@@ -1,7 +1,6 @@
 """Distance and location of the nearest cigarette vending machine."""
 
 from homeassistant.components.sensor import SensorEntity, SensorEntityDescription
-from homeassistant.const import UnitOfLength
 from homeassistant.helpers.update_coordinator import CoordinatorEntity
 
 from .const import ATTRIBUTION, DOMAIN
@@ -17,7 +16,7 @@ class NearestMachine(CoordinatorEntity, SensorEntity):
 
     entity_description = SensorEntityDescription(
         key="nearest", name="Nearest cigarette vending machine",
-        native_unit_of_measurement=UnitOfLength.KILOMETERS,
+        native_unit_of_measurement="km",
         icon="mdi:map-marker-radius",
     )
     _attr_has_entity_name = True

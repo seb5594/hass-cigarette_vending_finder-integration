@@ -2,14 +2,16 @@
 
 from __future__ import annotations
 
+from asyncio import gather
 from datetime import timedelta
 import logging
 
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.core import HomeAssistant, ServiceCall, SupportsResponse
-from homeassistant.exceptions import HomeAssistantError, ServiceValidationError
+from homeassistant import core
+from homeassistant.core import HomeAssistant, ServiceCall
+from homeassistant.exceptions import HomeAssistantError
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
@@ -18,6 +20,12 @@ from .const import CONF_LIMIT, CONF_PERSON, CONF_RADIUS, DEFAULT_LIMIT, DEFAULT_
 
 PLATFORMS = ("sensor", "geo_location")
 _LOGGER = logging.getLogger(__name__)
+
+try:
+    from homeassistant.exceptions import ServiceValidationError
+except ImportError:
+    class ServiceValidationError(HomeAssistantError):
+        """Report invalid input on versions without the native exception."""
 
 
 def coordinates(hass: HomeAssistant, person: str | None = None) -> tuple[float, float]:
@@ -82,7 +90,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
     # An unavailable API or person must not prevent configuration or service registration.
     await coordinator.async_refresh()
-    await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    if hasattr(hass.config_entries, "async_forward_entry_setups"):
+        await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
+    else:
+        await gather(*(hass.config_entries.async_forward_entry_setup(entry, platform)
+                       for platform in PLATFORMS))
     entry.async_on_unload(entry.add_update_listener(async_update_options))
 
     async def find_nearest(call: ServiceCall) -> dict:
@@ -111,6 +123,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             "machines": [machine.as_dict() for machine in machines],
         }
 
+    response_options = (
+        {"supports_response": core.SupportsResponse.OPTIONAL}
+        if hasattr(core, "SupportsResponse") else {}
+    )
     hass.services.async_register(
         DOMAIN, "find_nearest", find_nearest,
         schema=vol.Schema({
@@ -120,7 +136,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             vol.Optional(CONF_RADIUS): vol.All(vol.Coerce(int), vol.Range(min=1, max=100)),
             vol.Optional("limit"): vol.All(vol.Coerce(int), vol.Range(min=1, max=30)),
         }),
-        supports_response=SupportsResponse.OPTIONAL,
+        **response_options,
     )
     return True
 
