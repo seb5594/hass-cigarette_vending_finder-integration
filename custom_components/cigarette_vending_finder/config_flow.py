@@ -7,7 +7,7 @@ from typing import TYPE_CHECKING
 import voluptuous as vol
 
 from homeassistant.config_entries import ConfigFlow, OptionsFlow
-from homeassistant.helpers.selector import EntitySelector
+from homeassistant.helpers import selector
 
 from .const import CONF_LIMIT, CONF_PERSON, CONF_RADIUS, DEFAULT_LIMIT, DEFAULT_RADIUS, DOMAIN
 
@@ -18,11 +18,13 @@ if TYPE_CHECKING:
 def schema(options: dict | None = None) -> vol.Schema:
     """Build configuration and options schema."""
     options = options or {}
+    person_field = (
+        selector.selector({"entity": {"domain": "person"}})
+        if hasattr(selector, "selector") else str
+    )
     return vol.Schema(
         {
-            vol.Optional(CONF_PERSON, description={"suggested_value": options.get(CONF_PERSON)}): EntitySelector(
-                {"domain": "person"}
-            ),
+            vol.Optional(CONF_PERSON, description={"suggested_value": options.get(CONF_PERSON)}): person_field,
             vol.Optional(CONF_RADIUS, default=options.get(CONF_RADIUS, DEFAULT_RADIUS)): vol.All(
                 vol.Coerce(int), vol.Range(min=1, max=100)
             ),

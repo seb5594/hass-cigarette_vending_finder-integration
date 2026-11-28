@@ -28,7 +28,7 @@ Find the nearest **mapped** cigarette vending machines from a Home Assistant loc
 
 ## Install
 
-Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. Tested with Home Assistant 2024.4.0 or newer; 2024.3 lacks an API used by the config flow.
+Add this repository as a custom **Integration** in Home Assistant's Marketplace (or HACS on older versions), download it, restart Home Assistant, then add **Cigarette Vending Finder** under **Settings → Devices & services**. The compatibility badge shows the minimum version declared for installation through HACS.
 
 Choose an optional default person, a maximum radius (1–100 km, default 25), and the number of results on the map (1–30, default 10). Without a person, scheduled searches start at your Home Assistant home location. A configured person needs a device tracker with latitude and longitude. Location searches occur on setup, approximately every six hours, and when you run the action.
 
@@ -45,6 +45,8 @@ data:
   limit: 5
 response_variable: cigarette_machines
 ```
+
+Home Assistant versions before 2023.7 support the search action without `response_variable`. Read the result from the distance sensor attributes or the map markers. Older setup screens may require entering the optional `person.*` entity ID as text.
 
 The response contains `origin`, `count`, `nearest`, and `machines`. Each location includes distance **as the crow flies**, OSM and navigation links, and any available OSM details (`location`, `description`, `level`, street address, operator, brand, access, opening hours, payment methods, and survey date). `image_url` is supplied only when the OSM item provides an image or Wikimedia Commons file. A `mapillary` tag, when available, appears in `details` as a photo identifier; no Mapillary image is fetched. The nearest-distance sensor and up to the configured number of `geo_location` entities update after the action; markers appear on the Home Assistant map. Missing details are not fabricated.
 

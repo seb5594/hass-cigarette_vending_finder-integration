@@ -28,9 +28,10 @@ async def test_flow_and_service(hass):
     result = await hass.config_entries.flow.async_init(DOMAIN, context={"source": "user"})
     assert result["type"] == "form"
     result = await hass.config_entries.flow.async_configure(result["flow_id"], {
-        "maximum_radius_km": 5, "map_limit": 3,
+        "person": "person.sebastian", "maximum_radius_km": 5, "map_limit": 3,
     })
     assert result["type"] == "create_entry"
+    assert result["data"]["person"] == "person.sebastian"
     assert (await hass.config_entries.flow.async_init(DOMAIN, context={"source": "user"}))["type"] == "abort"
 
 

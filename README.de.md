@@ -6,7 +6,7 @@ Die Integration sucht den nächsten **in OpenStreetMap erfassten** Zigarettenaut
 
 ## Installation
 
-Dieses Repository im Home Assistant Marketplace (oder in älteren Versionen in HACS) als benutzerdefiniertes Repository vom Typ **Integration** hinzufügen, herunterladen und Home Assistant neu starten. Danach unter **Einstellungen → Geräte & Dienste** den **Zigarettenautomaten-Finder** einrichten. Getestet ab Home Assistant 2024.4.0; in 2024.3 fehlt eine für den Einrichtungsdialog benötigte API.
+Dieses Repository im Home Assistant Marketplace (oder in älteren Versionen in HACS) als benutzerdefiniertes Repository vom Typ **Integration** hinzufügen, herunterladen und Home Assistant neu starten. Danach unter **Einstellungen → Geräte & Dienste** den **Zigarettenautomaten-Finder** einrichten. Das Kompatibilitätsabzeichen im englischen README zeigt die für HACS eingetragene Mindestversion.
 
 Optional eine Standardperson auswählen sowie Suchradius (1–100 km, Standard 25) und Anzahl der Kartenmarkierungen (1–30, Standard 10) einstellen. Die Person benötigt Standortkoordinaten über einen Device Tracker. Gesucht wird beim Einrichten, etwa alle sechs Stunden und bei jedem Aufruf der Aktion.
 
@@ -23,6 +23,8 @@ data:
   limit: 5
 response_variable: cigarette_machines
 ```
+
+Vor Home Assistant 2023.7 funktioniert die Suchaktion ohne `response_variable`. Das Ergebnis steht in den Attributen des Entfernungssensors und auf der Karte. In älteren Einrichtungsdialogen kann die optionale `person.*`-Entitäts-ID als Texteingabe erscheinen.
 
 Die Antwort enthält `origin`, `count`, `nearest` und `machines`. Pro Automat werden die **Luftlinienentfernung**, OSM- und Navigationslink sowie vorhandene Standortdetails geliefert: etwa Beschreibung, genaue Lage, Stockwerk, Adresse, Betreiber, Zugang, Öffnungszeiten, Zahlarten und Erfassungsdatum. Ein `image_url` erscheint nur, wenn in OSM ein Bildlink oder eine Wikimedia-Commons-Datei hinterlegt ist. Ein vorhandener Mapillary-Verweis wird als Detail angezeigt, aber nicht als Bild geladen. Zusätzlich erscheinen ein Sensor für die Entfernung zum nächsten Automaten und temporäre Kartenmarkierungen. Fehlende Angaben werden nicht geschätzt.
 
