@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026.11.28.1
+
+- Support Home Assistant 2021.11.5 and newer with one HACS package.
+- Update the sensor and map on older Core versions. Service response data is available from Home Assistant 2023.7.
+
 ## 2026.11.28
 
 - Remove obsolete map markers from Home Assistant's state machine.
