@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026.11.28
+
+- Remove obsolete map markers from Home Assistant's state machine.
+- Report failed Overpass lookups as action errors.
+
 ## 2026.11.23.1
 
 - Added icon and light/dark wordmark in Home Assistant's brand image sizes.

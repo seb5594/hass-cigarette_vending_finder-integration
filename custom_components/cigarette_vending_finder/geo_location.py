@@ -19,7 +19,7 @@ async def async_setup_entry(hass, entry, async_add_entities):
         for key, entity in list(entities.items()):
             if key not in desired:
                 # The update listener cannot directly await removal.
-                hass.async_create_task(entity.async_remove())
+                hass.async_create_task(entity.async_remove(force_remove=True))
                 del entities[key]
         new = []
         for key, machine in desired.items():

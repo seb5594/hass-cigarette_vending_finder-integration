@@ -26,7 +26,7 @@ response_variable: cigarette_machines
 
 Die Antwort enthält `origin`, `count`, `nearest` und `machines`. Pro Automat werden die **Luftlinienentfernung**, OSM- und Navigationslink sowie vorhandene Standortdetails geliefert: etwa Beschreibung, genaue Lage, Stockwerk, Adresse, Betreiber, Zugang, Öffnungszeiten, Zahlarten und Erfassungsdatum. Ein `image_url` erscheint nur, wenn in OSM ein Bildlink oder eine Wikimedia-Commons-Datei hinterlegt ist. Ein vorhandener Mapillary-Verweis wird als Detail angezeigt, aber nicht als Bild geladen. Zusätzlich erscheinen ein Sensor für die Entfernung zum nächsten Automaten und temporäre Kartenmarkierungen. Fehlende Angaben werden nicht geschätzt.
 
-Bei keinem Treffer ist `machines` leer und `nearest` gleich `null`. Ohne brauchbare Positionsdaten oder bei einer Störung von Overpass meldet die Aktion einen Fehler; der bisherige Sensorwert kann dann veraltet sein.
+Bei keinem Treffer ist `machines` leer und `nearest` gleich `null`. Ohne brauchbare Positionsdaten meldet die Aktion einen Validierungsfehler. Schlägt die Abfrage bei Overpass fehl, meldet die Aktion einen Suchfehler. Der bisherige Sensorwert kann dann veraltet sein.
 
 ## Herkunft und Datenschutz
 

@@ -9,7 +9,7 @@ import voluptuous as vol
 
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall, SupportsResponse
-from homeassistant.exceptions import ServiceValidationError
+from homeassistant.exceptions import HomeAssistantError, ServiceValidationError
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
@@ -103,7 +103,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
                 call.data.get("limit", settings.get(CONF_LIMIT, DEFAULT_LIMIT)),
             )
         except FinderError as error:
-            raise ServiceValidationError(str(error)) from error
+            raise HomeAssistantError(str(error)) from error
         return {
             "origin": {"latitude": origin[0], "longitude": origin[1], "person": person},
             "count": len(machines),

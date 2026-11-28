@@ -48,7 +48,7 @@ response_variable: cigarette_machines
 
 The response contains `origin`, `count`, `nearest`, and `machines`. Each location includes distance **as the crow flies**, OSM and navigation links, and any available OSM details (`location`, `description`, `level`, street address, operator, brand, access, opening hours, payment methods, and survey date). `image_url` is supplied only when the OSM item provides an image or Wikimedia Commons file. A `mapillary` tag, when available, appears in `details` as a photo identifier; no Mapillary image is fetched. The nearest-distance sensor and up to the configured number of `geo_location` entities update after the action; markers appear on the Home Assistant map. Missing details are not fabricated.
 
-The action returns an empty `machines` list and `nearest: null` if no mapped machine exists inside the requested radius. It reports a validation error when a person has no usable coordinates or the public Overpass server cannot respond; in that case previous sensor data remains available and may be stale.
+The action returns an empty `machines` list and `nearest: null` if no mapped machine exists inside the requested radius. It reports a validation error when a person has no usable coordinates. If an Overpass lookup fails, the action reports a lookup error. Previous sensor data may then be stale.
 
 ## Data, images, and privacy
 
